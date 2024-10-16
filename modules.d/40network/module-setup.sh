@@ -5,6 +5,9 @@ check() {
     return 255
 }
 
+
+testlabel
+
 # called by dracut
 depends() {
     echo -n "net-lib kernel-network-modules "
