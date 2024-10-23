@@ -58,14 +58,10 @@ jobs:
             fail-fast: false
             matrix:
                 container: [
-                        "alpine",
-                        "arch",
-                        "debian",
-                        "fedora",
-                        "gentoo",
-                        "opensuse",
-                        "ubuntu",
-                        "void",
+                        "alpine:edge",
+                        "debian:sid",
+                        "fedora:rawhide",
+                        "ubuntu:rolling",
                 ]
                 test: [
                         "11",
