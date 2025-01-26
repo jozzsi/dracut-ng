@@ -141,6 +141,10 @@ jobs:
             matrix:
                 container:
                     - fedora
+                    - arch
+                    - fedora
+                    - gentoo
+                    - opensuse
                 test:
                     - "43"
         container:
