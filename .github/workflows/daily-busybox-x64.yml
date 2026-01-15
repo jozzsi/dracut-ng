@@ -28,6 +28,7 @@ jobs:
                 config:
                     - {test: '10', deps: ''}
                     - {test: '11', deps: 'btrfs-progs'}
+                    - {test: '12', deps: 'efistub ukify ovmf squashfs-tools'}
                     - {test: '13', deps: ''}
                     - {test: '20', deps: 'lvm2 device-mapper'}
                     - {test: '26', deps: 'cryptsetup mdadm device-mapper lvm2 partx sed'}
@@ -42,4 +43,4 @@ jobs:
             - name: "Checkout Repository"
               uses: actions/checkout@v6
             - name: "TEST-${{ matrix.config.test }}"
-              run: TEST_CONTAINER_COMMAND="apk add ${{ matrix.config.deps }}" ./test/test-container.sh "TEST-${{ matrix.config.test }}" ${{ matrix.config.test }}
+              run: TEST_CONTAINER_COMMAND="ln -f /boot/vmlinux-virt /boot/vmlinux-$(uname -r); apk add ${{ matrix.config.deps }}" ./test/test-container.sh "TEST-${{ matrix.config.test }}" ${{ matrix.config.test }}
